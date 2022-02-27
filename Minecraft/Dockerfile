@@ -4,7 +4,7 @@ FROM ubuntu
 ENV TZ=America/Edmonton
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ENTRYPOINT /bin/bash
+CMD /bin/bash
 WORKDIR /tmp
 
 #Install prerequisites
@@ -32,4 +32,4 @@ RUN /tmp/installer 31 --auto
 
 EXPOSE 25565 25565
 
-CMD /root/start.sh
+ENTRYPOINT /root/start.sh
